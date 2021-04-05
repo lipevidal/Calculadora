@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HTML</title>
+  
+  <!-- HTML -->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style rel="stylesheet">
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      width: 100%;
+      height: 100vh;
+      background-color: #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+    #container{
+      min-width: 280px;
+      max-width: 300px;
+      background-color: #222;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #display{
+      display: inline-block;
+      width: 90%;
+      background-color: #fff;
+      border: none;
+      font-size: 2em;
+      padding: 5px;
+      border-radius: 5px;
+      text-align: right;
+      margin: 20px 0;
+    }
+    #teclado{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      align-content: center;
+      position: relative;
+    }
+    #teclado div{
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .posicao{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 107px;
+    }
+    
+    button{
+      font-size: 1em;
+      width: 90%;
+      color: white;
+      background-color: #000;
+      border: none;
+      padding: 10px;
+      box-shadow: 0 0 2px #000;
+      border-radius: 5px;
+      outline: none;
+    }
+    button:hover{
+      background: #333;
+    }
+    
+    .col-1{width: 8.33%}
+    .col-2{width: 16.66%}
+    .col-3{width: 25%}
+    .col-4{width: 33.33%}
+    .col-5{width: 41.66%}
+    .col-6{width: 50%}
+    .col-7{width: 58.33%}
+    .col-8{width: 66.66%}
+    .col-9{width: 75%}
+    .col-10{width: 83.33%}
+    .col-11{width: 91.66%}
+    .col-12{width: 100%}
+  </style>
+</head>
+
+<body>
+  
+  <div id="container">
+    
+    <input id="display" type="text" placeholder="0" disabled="";>
+    
+    <div id="teclado">
+      
+      <div class="col-6">
+        <button value="C"
+        type="button">C</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="/"
+        type="button">÷</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="*"
+        type="button">x</button>
+      </div>
+      
+  <!--------------------------------->
+  
+      <div class="col-3">
+        <button value="7"
+        type="button">7</button>
+      </div>
+      <div class="col-3">
+        <button value="8"
+        type="button">8</button>
+      </div>
+      <div class="col-3">
+        <button value="9"
+        type="button">9</button>
+      </div>
+      <div class="col-3">
+        <button value="-"
+        type="button">-</button>
+      </div>
+  
+  <!---------------------------------->
+  
+      <div class="col-3">
+        <button value="4"
+        type="button">4</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="5"
+        type="button">5</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="6"
+        type="button">6</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="+"
+        type="button">+</button>
+      </div>
+      
+  <!---------------------------------->
+  
+      <div class="col-3">
+        <button value="1"
+        type="button">1</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="2"
+        type="button">2</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="3"
+        type="button">3</button>
+      </div>
+      
+      <div class="col-3 posicao">
+        <button value="="
+        type="button">=</button>
+      </div>
+      
+  <!----------------------------------->
+  
+      <div class="col-6">
+        <button value="0"
+        type="button">0</button>
+      </div>
+      
+      <div class="col-3">
+        <button value="."
+        type="button">.</button>
+      </div>
+    
+  </div>
+  
+  
+  
+  <!-- Project -->
+  <script>
+  
+    var btn = document.getElementsByTagName("button")
+    
+    var i
+    for (i = 0; i < btn.length; i++){
+      btn[i].addEventListener("click", calcular)
+    }
+    
+    function calcular(){
+      var valorBotao = this.value
+      
+      if (valorBotao === 'C'){
+        document.getElementById('display').value = ''
+      } else if (valorBotao === '='){
+        var valorCampo = eval(document.getElementById('display').value)
+        document.getElementById('display').value = valorCampo
+      } else {
+        document.getElementById("display").value += valorBotao
+      }
+      
+    }
+    
+    
+  </script>
+</body>
+</html>
